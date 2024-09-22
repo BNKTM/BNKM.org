@@ -5,7 +5,7 @@
     <title>БНКТМ - Бендерское Телемедиа</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Подключение шрифтов -->
-    <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Montserrat:wght@600&display=swap" rel="stylesheet">
     <!-- Подключение иконок Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <!-- Фавикон -->
@@ -18,7 +18,7 @@
     <!-- Open Graph метатеги -->
     <meta property="og:title" content="БНКТМ - Бендерское Телемедиа">
     <meta property="og:description" content="Официальный источник новостей и информации в Приднестровской Молдавской Республике.">
-    <meta property="og:image" content="social-share.jpg">
+    <meta property="og:image" content="social-share.png">
     <meta property="og:url" content="https://bnktm.gov.pm">
     <meta property="og:type" content="website">
     <!-- Подключение скриптов -->
@@ -70,8 +70,6 @@
 </header>
 
 <main>
-    <!-- Разделы с улучшенной структурой и контентом -->
-
     <!-- Раздел "О нас" -->
     <section id="about" class="section">
         <div class="container">
@@ -107,6 +105,7 @@
                     <p>Представители различных стран собрались в Тирасполе для обсуждения актуальных вопросов региональной безопасности...</p>
                     <a href="#">Читать далее</a>
                 </article>
+                <!-- Добавьте больше новостей при необходимости -->
             </div>
         </div>
     </section>
@@ -165,6 +164,7 @@
                     <p>Руководитель отдела новостей</p>
                     <p>Отвечает за своевременное и объективное освещение событий в регионе.</p>
                 </div>
+                <!-- Добавьте больше членов команды при необходимости -->
             </div>
         </div>
     </section>
@@ -187,7 +187,9 @@
                     <h3>"БНКТМ - КУЛИНАРНАЯ БИТВА"</h3>
                 </div>
             </div>
-            <a href="https://www.youtube.com/@BNKTM_TV" class="cta-button">Смотреть все видео</a>
+            <div class="video-button-container">
+                <a href="https://www.youtube.com/@BNKTM_TV" class="cta-button">Смотреть все видео</a>
+            </div>
         </div>
     </section>
 
@@ -226,8 +228,23 @@
                     <h3>Уборщик (стажер)</h3>
                     <p><strong>Срок стажировки:</strong> 12 месяцев без оплаты</p>
                     <p><strong>Описание:</strong> Ищем ответственного и трудолюбивого человека для поддержки чистоты и порядка в наших помещениях. Отличная возможность получить опыт работы в крупной организации.</p>
-                    <button onclick="alert('Спасибо за интерес к нашей вакансии! Пожалуйста, отправьте ваше резюме на info@bnktm.gov.pm')">Откликнуться</button>
+                    <button onclick="window.location.href='mailto:info@bnktm.gov.pm?subject=Отклик на вакансию уборщик (стажер)'">Откликнуться</button>
                 </div>
+                <!-- Вакансия 2 -->
+                <div class="vacancy-item">
+                    <h3>Ведущий программы</h3>
+                    <p><strong>Требования:</strong> Опыт работы на телевидении не менее 3 лет, отличные коммуникативные навыки.</p>
+                    <p><strong>Описание:</strong> Ответственный за ведение прямых эфиров, подготовку контента и взаимодействие с гостями программы.</p>
+                    <button onclick="window.location.href='mailto:info@bnktm.gov.pm?subject=Отклик на вакансию ведущий программы'">Откликнуться</button>
+                </div>
+                <!-- Вакансия 3 -->
+                <div class="vacancy-item">
+                    <h3>Монтажер видео</h3>
+                    <p><strong>Требования:</strong> Владение программами Adobe Premiere Pro и After Effects, внимательность к деталям.</p>
+                    <p><strong>Описание:</strong> Ответственный за монтаж и постобработку видео материалов, создание графических элементов и спецэффектов.</p>
+                    <button onclick="window.location.href='mailto:info@bnktm.gov.pm?subject=Отклик на вакансию монтажер видео'">Откликнуться</button>
+                </div>
+                <!-- Добавьте больше вакансий при необходимости -->
             </div>
         </div>
     </section>
@@ -243,9 +260,9 @@
                 <p><strong>Email:</strong> <a href="mailto:info@bnktm.gov.pm">info@bnktm.gov.pm</a></p>
             </div>
             <!-- Форма обратной связи -->
-            <form action="#" method="post" id="contact-form">
+            <form action="https://formspree.io/f/mwkajnqa" method="POST" id="contact-form">
                 <input type="text" name="name" placeholder="Ваше имя" required>
-                <input type="email" name="email" placeholder="Ваш email" required>
+                <input type="email" name="_replyto" placeholder="Ваш email" required>
                 <textarea name="message" placeholder="Ваше сообщение" required></textarea>
                 <button type="submit">Отправить</button>
             </form>
@@ -259,10 +276,11 @@
         <div class="footer-content">
             <p>&copy; <span id="year"></span> Бендерское Телемедиа (БНКТМ). Все права защищены.</p>
             <div class="social-icons">
-                <a href="#"><i class="fab fa-vk"></i></a>
-                <a href="#"><i class="fab fa-odnoklassniki"></i></a>
-                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                <a href="https://www.youtube.com/@BNKTM_TV"><i class="fab fa-youtube"></i></a>
+                <a href="https://vk.com/yourprofile" target="_blank" aria-label="VK"><i class="fab fa-vk"></i></a>
+                <a href="https://ok.ru/yourprofile" target="_blank" aria-label="Одноклассники"><i class="fab fa-odnoklassniki"></i></a>
+                <a href="https://facebook.com/yourprofile" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://youtube.com/@BNKTM_TV" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                <!-- Добавьте другие социальные сети при необходимости -->
             </div>
         </div>
     </div>
