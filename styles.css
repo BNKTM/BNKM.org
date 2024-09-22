@@ -4,7 +4,7 @@ body {
     font-family: 'Roboto', sans-serif;
     margin: 0;
     color: #333;
-    background-color: #f4f4f4;
+    background-color: var(--background-color);
     line-height: 1.6;
     font-size: 18px;
 }
@@ -16,7 +16,7 @@ img {
 }
 
 a {
-    color: #007236;
+    color: var(--secondary-color);
     text-decoration: none;
 }
 
@@ -44,6 +44,7 @@ a:hover {
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
 }
 
 .top-bar .container {
@@ -100,6 +101,23 @@ a:hover {
     background-color: darken(var(--primary-color), 10%);
 }
 
+/* Гамбургер-меню (иконка) */
+
+.hamburger {
+    display: none;
+    cursor: pointer;
+    font-size: 24px;
+    color: #fff;
+}
+
+.hamburger.active .fas.fa-bars {
+    display: none;
+}
+
+.hamburger.active .fas.fa-times {
+    display: block;
+}
+
 /* Навигация */
 
 nav {
@@ -107,6 +125,7 @@ nav {
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
 }
 
 nav .container {
@@ -141,6 +160,37 @@ nav a {
 nav a:hover {
     background-color: var(--secondary-color);
     transform: translateY(-2px);
+}
+
+/* Адаптивное меню */
+
+@media (max-width: 768px) {
+    .hamburger {
+        display: block;
+    }
+
+    nav ul {
+        position: absolute;
+        top: 60px;
+        left: 0;
+        right: 0;
+        background-color: var(--primary-color);
+        flex-direction: column;
+        align-items: center;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-in-out;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+    }
+
+    nav ul.active {
+        max-height: 500px; /* Достаточно большое значение для отображения всех элементов */
+    }
+
+    nav li {
+        margin: 15px 0;
+    }
 }
 
 /* Герой секция */
@@ -179,12 +229,14 @@ nav a:hover {
     font-size: 48px;
     margin-bottom: 20px;
     animation: fadeInDown 1s ease-out;
+    color: #fff; /* Убедитесь, что заголовок белый */
 }
 
 .hero p {
     font-size: 24px;
     margin-bottom: 30px;
     animation: fadeInUp 1s ease-out;
+    color: #fff; /* Убедитесь, что текст под заголовком белый */
 }
 
 .cta-button {
@@ -208,7 +260,13 @@ nav a:hover {
 /* Кнопка "Смотреть все видео" */
 .video-button-container {
     text-align: center;
-    margin-top: 20px;
+    margin-top: 30px;
+}
+
+.video-button-container .cta-button {
+    display: inline-block;
+    margin-top: 30px;
+    text-align: center;
 }
 
 /* Анимации */
@@ -422,13 +480,6 @@ nav a:hover {
     font-size: 20px;
     color: var(--primary-color);
     font-family: 'Montserrat', sans-serif;
-}
-
-/* Кнопка "Смотреть все видео" */
-.video-button-container .cta-button {
-    display: inline-block;
-    margin-top: 30px;
-    text-align: center;
 }
 
 /* Отзывы зрителей */
@@ -675,6 +726,41 @@ footer {
 
     .section h2 {
         font-size: 28px;
+    }
+
+    nav ul {
+        flex-direction: column;
+    }
+
+    nav ul.active {
+        max-height: 500px;
+    }
+
+    nav a {
+        width: 100%;
+        text-align: center;
+    }
+
+    .search-bar form {
+        width: 100%;
+    }
+
+    .search-bar input {
+        width: 100%;
+    }
+
+    .search-bar button {
+        width: 100%;
+    }
+
+    /* Улучшение геро секции на мобильных */
+    .hero {
+        padding: 80px 20px;
+    }
+
+    .cta-button {
+        padding: 12px 25px;
+        font-size: 16px;
     }
 }
 
