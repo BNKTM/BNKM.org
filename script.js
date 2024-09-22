@@ -107,3 +107,23 @@ document.getElementById('contact-form').addEventListener('submit', function(e) {
         document.getElementById('form-message').textContent = 'Пожалуйста, заполните все поля.';
     }
 });
+
+// Обработка гамбургер-меню
+const hamburger = document.querySelector('.hamburger');
+const navLinks = document.querySelector('.nav-links');
+
+hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    navLinks.classList.toggle('active');
+
+    // Переключение иконок гамбургера
+    const bars = hamburger.querySelector('.fas.fa-bars');
+    const times = hamburger.querySelector('.fas.fa-times');
+    if (hamburger.classList.contains('active')) {
+        bars.style.display = 'none';
+        times.style.display = 'block';
+    } else {
+        bars.style.display = 'block';
+        times.style.display = 'none';
+    }
+});
