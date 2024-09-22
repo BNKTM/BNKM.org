@@ -5,6 +5,8 @@ body {
     margin: 0;
     color: #333;
     background-color: #fff;
+    line-height: 1.6;
+    font-size: 18px;
 }
 
 img {
@@ -179,6 +181,14 @@ button:hover {
 
 .section {
     padding: 60px 0;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.7s ease-out;
+}
+
+.section.in-view {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .section:nth-child(even) {
@@ -388,6 +398,40 @@ button:hover {
     color: #333;
 }
 
+/* Вакансии */
+
+#vacancies {
+    background-color: #f9f9f9;
+    padding: 60px 0;
+}
+
+.vacancy-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.vacancy-item {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 20px;
+}
+
+.vacancy-item h3 {
+    margin-top: 0;
+    font-size: 24px;
+    color: var(--red);
+}
+
+.vacancy-item p {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.vacancy-item button {
+    margin-top: 10px;
+}
+
 /* Контакты */
 
 .contact-info {
@@ -450,10 +494,12 @@ footer {
     color: #fff;
     font-size: 24px;
     margin: 0 10px;
+    transition: color 0.3s, transform 0.3s;
 }
 
 .social-icons a:hover {
     color: var(--red);
+    transform: scale(1.1);
 }
 
 /* Кнопка "Наверх" */
@@ -475,25 +521,6 @@ footer {
 
 .back-to-top:hover {
     background-color: var(--green);
-}
-
-/* Хлебные крошки (Breadcrumbs) */
-
-.breadcrumbs {
-    margin: 20px 0;
-}
-
-.breadcrumbs a {
-    color: var(--green);
-    text-decoration: none;
-}
-
-.breadcrumbs a:hover {
-    text-decoration: underline;
-}
-
-.breadcrumbs span {
-    margin: 0 5px;
 }
 
 /* Адаптивность */
@@ -521,36 +548,3 @@ footer {
         flex: 1 1 100%;
     }
 }
-
-/* Дополнительные стили */
-
-h1, h2, h3, h4, h5, h6 {
-    color: #333;
-    margin-top: 0;
-}
-
-p {
-    font-size: 16px;
-    line-height: 1.6;
-}
-
-ul {
-    list-style-type: disc;
-    padding-left: 20px;
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-th, td {
-    padding: 10px;
-    border: 1px solid #ddd;
-    text-align: left;
-}
-
-th {
-    background-color: #f2f2f2;
-}
-
