@@ -67,7 +67,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 });
 
-// Обработка отправки формы
+// Обработка отправки формы через Formspree
 document.getElementById('contact-form').addEventListener('submit', function(e) {
     e.preventDefault();
     // Простая валидация формы
@@ -76,9 +76,32 @@ document.getElementById('contact-form').addEventListener('submit', function(e) {
     const message = this.message.value.trim();
 
     if (name && email && message) {
-        // Показать сообщение об успешной отправке
-        document.getElementById('form-message').textContent = 'Спасибо! Ваше сообщение отправлено.';
-        this.reset();
+        // Отправка данных через Formspree
+        const formData = new FormData(this);
+        fetch(this.action, {
+            method: this.method,
+            body: formData,
+            headers: {
+                'Accept': 'application/json'
+            }
+        })
+        .then(response => {
+            if (response.ok) {
+                document.getElementById('form-message').textContent = 'Спасибо! Ваше сообщение отправлено.';
+                this.reset();
+            } else {
+                response.json().then(data => {
+                    if (Object.hasOwn(data, 'errors')) {
+                        document.getElementById('form-message').textContent = data.errors.map(error => error.message).join(', ');
+                    } else {
+                        document.getElementById('form-message').textContent = 'Что-то пошло не так. Пожалуйста, попробуйте еще раз.';
+                    }
+                });
+            }
+        })
+        .catch(error => {
+            document.getElementById('form-message').textContent = 'Что-то пошло не так. Пожалуйста, попробуйте еще раз.';
+        });
     } else {
         // Показать сообщение об ошибке
         document.getElementById('form-message').textContent = 'Пожалуйста, заполните все поля.';
