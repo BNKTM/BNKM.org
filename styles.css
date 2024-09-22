@@ -1,10 +1,10 @@
 /* Основные стили */
 
 body {
-    font-family: 'PT Sans', sans-serif;
+    font-family: 'Roboto', sans-serif;
     margin: 0;
     color: #333;
-    background-color: #fff;
+    background-color: #f4f4f4;
     line-height: 1.6;
     font-size: 18px;
 }
@@ -24,34 +24,47 @@ a:hover {
     text-decoration: underline;
 }
 
-/* Цветовая схема флага ПМР */
+/* Цветовая схема */
 :root {
-    --red: #D52B1E; /* Красный */
-    --green: #007236; /* Зеленый */
+    --primary-color: #D52B1E; /* Красный */
+    --secondary-color: #007236; /* Зеленый */
+    --background-color: #f4f4f4;
+    --light-gray: #f9f9f9;
+    --dark-gray: #555;
+    --text-color: #333;
+    --button-hover: #005f20;
 }
 
 /* Верхняя панель с гербом и поиском */
 
 .top-bar {
-    background-color: var(--green);
+    background-color: var(--secondary-color);
     color: #fff;
-    padding: 5px 0;
+    padding: 10px 0;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .top-bar .container {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
 .government-logo img {
     width: 50px;
-    margin-right: 10px;
+    height: 50px;
+    object-fit: contain;
 }
 
 .government-name p {
     margin: 0;
-    font-weight: bold;
+    font-weight: 700;
+    font-size: 20px;
 }
 
 /* Поисковая строка */
@@ -59,35 +72,48 @@ a:hover {
 .search-bar form {
     display: flex;
     align-items: center;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
 }
 
 .search-bar input {
-    padding: 5px 10px;
+    padding: 8px 15px;
     border: none;
-    border-radius: 3px 0 0 3px;
+    border-radius: 20px 0 0 20px;
+    font-size: 16px;
+    outline: none;
 }
 
 .search-bar button {
-    padding: 5px 10px;
+    padding: 8px 15px;
     border: none;
-    background-color: var(--red);
+    background-color: var(--primary-color);
     color: #fff;
-    border-radius: 0 3px 3px 0;
+    border-radius: 0 20px 20px 0;
     cursor: pointer;
+    transition: background-color 0.3s;
 }
 
 .search-bar button:hover {
-    background-color: #b22222;
+    background-color: darken(var(--primary-color), 10%);
 }
 
 /* Навигация */
 
 nav {
-    background-color: var(--red);
+    background-color: var(--primary-color);
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 nav .container {
     display: flex;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
 nav ul {
@@ -95,23 +121,26 @@ nav ul {
     margin: 0;
     padding: 0;
     display: flex;
-    flex-grow: 1;
+    flex-wrap: wrap;
     justify-content: center;
 }
 
 nav li {
-    margin: 0;
+    margin: 0 10px;
 }
 
 nav a {
     display: block;
-    padding: 15px 20px;
+    padding: 12px 20px;
     color: #fff;
-    font-weight: bold;
+    font-weight: 700;
+    border-radius: 20px;
+    transition: background-color 0.3s, transform 0.3s;
 }
 
 nav a:hover {
-    background-color: var(--green);
+    background-color: var(--secondary-color);
+    transform: translateY(-2px);
 }
 
 /* Герой секция */
@@ -119,9 +148,14 @@ nav a:hover {
 .hero {
     background: url('hero-bg.png') no-repeat center center/cover;
     color: #fff;
-    padding: 100px 0;
+    padding: 120px 20px;
     text-align: center;
     position: relative;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .hero::after {
@@ -137,50 +171,67 @@ nav a:hover {
 .hero .container {
     position: relative;
     z-index: 1;
+    max-width: 800px;
 }
 
 .hero h1 {
+    font-family: 'Montserrat', sans-serif;
     font-size: 48px;
     margin-bottom: 20px;
+    animation: fadeInDown 1s ease-out;
 }
 
 .hero p {
     font-size: 24px;
     margin-bottom: 30px;
+    animation: fadeInUp 1s ease-out;
 }
 
-/* Кнопки */
-
 .cta-button {
-    background-color: var(--red);
+    background-color: var(--primary-color);
     color: #fff;
     padding: 15px 30px;
-    border-radius: 5px;
+    border-radius: 30px;
     font-size: 18px;
-    transition: background-color 0.3s;
+    font-weight: 700;
+    transition: background-color 0.3s, transform 0.3s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: inline-block;
+    animation: fadeIn 1s ease-out;
 }
 
 .cta-button:hover {
-    background-color: var(--green);
+    background-color: var(--secondary-color);
+    transform: translateY(-2px);
 }
 
-button {
-    background-color: var(--red);
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+/* Кнопка "Смотреть все видео" */
+.video-button-container {
+    text-align: center;
+    margin-top: 20px;
 }
 
-button:hover {
-    background-color: var(--green);
+/* Анимации */
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 /* Секции */
 
 .section {
-    padding: 60px 0;
+    padding: 60px 20px;
     opacity: 0;
     transform: translateY(50px);
     transition: all 0.7s ease-out;
@@ -192,54 +243,23 @@ button:hover {
 }
 
 .section:nth-child(even) {
-    background-color: #f9f9f9;
+    background-color: var(--light-gray);
 }
 
 .section h2 {
     font-size: 36px;
     margin-bottom: 40px;
     text-align: center;
-    color: var(--red);
+    color: var(--primary-color);
+    font-family: 'Montserrat', sans-serif;
 }
 
-.section .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-/* Раздел "О нас" */
-
-#about p {
+.section p {
     font-size: 18px;
-    line-height: 1.6;
+    line-height: 1.8;
     text-align: center;
     max-width: 800px;
-    margin: 0 auto;
-}
-
-/* Раздел "Наша миссия" */
-
-#mission {
-    background-color: #f9f9f9;
-    padding: 60px 0;
-}
-
-#mission .container {
-    max-width: 800px;
-    margin: 0 auto;
-    text-align: center;
-}
-
-#mission h2 {
-    font-size: 36px;
-    margin-bottom: 20px;
-    color: var(--red);
-}
-
-#mission p {
-    font-size: 18px;
-    line-height: 1.6;
+    margin: 0 auto 20px auto;
 }
 
 /* Новости */
@@ -247,38 +267,51 @@ button:hover {
 .news-list {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 30px;
+    justify-content: center;
 }
 
 .news-item {
-    flex: 1 1 calc(50% - 20px);
     background-color: #fff;
     border: 1px solid #ddd;
     overflow: hidden;
     display: flex;
     flex-direction: column;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.news-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
 }
 
 .news-item img {
     width: 100%;
-    height: auto;
+    height: 200px;
+    object-fit: cover;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
 }
 
 .news-item h3 {
-    margin: 15px;
+    margin: 20px;
     font-size: 24px;
+    color: var(--primary-color);
+    font-family: 'Montserrat', sans-serif;
 }
 
 .news-item p {
-    margin: 0 15px 15px;
-    color: #666;
+    margin: 0 20px 20px 20px;
+    color: var(--dark-gray);
     flex-grow: 1;
 }
 
 .news-item a {
-    margin: 0 15px 15px;
-    color: var(--red);
-    align-self: flex-start;
+    margin: 0 20px 20px 20px;
+    color: var(--primary-color);
+    font-weight: 700;
 }
 
 .news-item a:hover {
@@ -290,16 +323,18 @@ button:hover {
 .schedule table {
     width: 100%;
     border-collapse: collapse;
+    margin-top: 20px;
 }
 
 .schedule th, .schedule td {
     border: 1px solid #ddd;
-    padding: 10px;
+    padding: 12px 15px;
     text-align: left;
 }
 
 .schedule th {
     background-color: #f2f2f2;
+    font-weight: 700;
 }
 
 .schedule tr:nth-child(even) {
@@ -311,32 +346,46 @@ button:hover {
 .team-members {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 30px;
     justify-content: center;
 }
 
 .team-member {
-    flex: 1 1 calc(33% - 40px);
+    flex: 1 1 calc(33% - 60px);
     text-align: center;
     background-color: #fff;
-    padding: 20px;
+    padding: 25px;
     border: 1px solid #ddd;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.team-member:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
 }
 
 .team-member img {
     border-radius: 50%;
-    width: 200px;
-    height: 200px;
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    margin-bottom: 20px;
+    border: 5px solid var(--secondary-color);
 }
 
 .team-member h3 {
-    margin-top: 15px;
-    font-size: 24px;
+    margin-bottom: 10px;
+    font-size: 22px;
+    color: var(--primary-color);
+    font-family: 'Montserrat', sans-serif;
 }
 
 .team-member p {
     font-size: 16px;
-    color: #666;
+    color: var(--dark-gray);
+    margin-bottom: 10px;
 }
 
 /* Видео */
@@ -344,100 +393,144 @@ button:hover {
 .video-gallery {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 30px;
     justify-content: center;
 }
 
 .video-item {
-    flex: 1 1 calc(33% - 40px);
+    flex: 1 1 calc(33% - 60px);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.video-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
 }
 
 .video-item iframe {
     width: 100%;
     height: 200px;
+    border: none;
 }
 
 .video-item h3 {
     text-align: center;
-    margin-top: 10px;
+    margin: 15px 0;
     font-size: 20px;
+    color: var(--primary-color);
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Кнопка "Смотреть все видео" */
+.video-button-container .cta-button {
+    display: inline-block;
+    margin-top: 30px;
+    text-align: center;
 }
 
 /* Отзывы зрителей */
 
-#testimonials {
-    background-color: #fff;
-    padding: 60px 0;
-}
-
-#testimonials .container {
-    max-width: 800px;
-    margin: 0 auto;
-}
-
 .testimonials {
     display: flex;
     flex-direction: column;
+    gap: 30px;
     align-items: center;
 }
 
 .testimonial {
-    margin-bottom: 40px;
+    width: 100%;
+    max-width: 700px;
     text-align: center;
+    padding: 25px;
+    background-color: #fff;
+    border-left: 5px solid var(--primary-color);
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.testimonial:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
 }
 
 .testimonial p {
     font-size: 20px;
     font-style: italic;
-    color: #555;
+    color: var(--dark-gray);
+    margin-bottom: 15px;
 }
 
 .testimonial h4 {
-    margin-top: 15px;
     font-size: 18px;
-    color: #333;
+    color: var(--primary-color);
+    font-weight: 700;
 }
 
 /* Вакансии */
 
-#vacancies {
-    background-color: #f9f9f9;
-    padding: 60px 0;
-}
-
 .vacancy-list {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 30px;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 .vacancy-item {
     background-color: #fff;
-    border: 1px solid #ddd;
-    padding: 20px;
+    border: 2px solid var(--primary-color);
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.vacancy-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
 }
 
 .vacancy-item h3 {
     margin-top: 0;
     font-size: 24px;
-    color: var(--red);
+    color: var(--primary-color);
+    font-family: 'Montserrat', sans-serif;
 }
 
 .vacancy-item p {
     font-size: 16px;
-    line-height: 1.6;
+    line-height: 1.8;
+    color: var(--text-color);
 }
 
 .vacancy-item button {
-    margin-top: 10px;
+    margin-top: 20px;
+    border-radius: 25px;
+    padding: 12px 25px;
+    background-color: var(--secondary-color);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-weight: 700;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.vacancy-item button:hover {
+    background-color: var(--primary-color);
+    transform: translateY(-3px);
 }
 
 /* Контакты */
 
 .contact-info {
     font-size: 18px;
-    line-height: 1.6;
+    line-height: 1.8;
     text-align: center;
+    margin-bottom: 30px;
 }
 
 .contact-info p {
@@ -446,48 +539,73 @@ button:hover {
 
 #contact-form {
     max-width: 600px;
-    margin: 30px auto 0;
+    margin: 0 auto;
 }
 
 #contact-form input, #contact-form textarea {
     width: 100%;
-    padding: 15px;
-    margin-bottom: 15px;
-    border-radius: 5px;
+    padding: 15px 20px;
+    margin-bottom: 20px;
+    border-radius: 25px;
     border: 1px solid #ccc;
+    font-size: 16px;
+    outline: none;
+    transition: border 0.3s;
+}
+
+#contact-form input:focus, #contact-form textarea:focus {
+    border-color: var(--primary-color);
 }
 
 #contact-form button {
     width: 100%;
     padding: 15px;
     font-size: 18px;
+    border-radius: 30px;
+    background-color: var(--secondary-color);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-weight: 700;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+#contact-form button:hover {
+    background-color: var(--primary-color);
+    transform: translateY(-3px);
 }
 
 #form-message {
     text-align: center;
     margin-top: 15px;
     font-size: 18px;
-    color: var(--red);
+    color: var(--primary-color);
 }
 
 /* Футер */
 
 footer {
-    background-color: var(--green);
+    background-color: var(--secondary-color);
     color: #fff;
-    padding: 20px 0;
+    padding: 30px 20px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .footer-content {
     text-align: center;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .footer-content p {
-    margin: 5px 0;
+    margin: 10px 0;
+    font-size: 16px;
 }
 
 .social-icons {
-    margin-top: 10px;
+    margin-top: 15px;
 }
 
 .social-icons a {
@@ -498,8 +616,8 @@ footer {
 }
 
 .social-icons a:hover {
-    color: var(--red);
-    transform: scale(1.1);
+    color: var(--primary-color);
+    transform: scale(1.2);
 }
 
 /* Кнопка "Наверх" */
@@ -508,43 +626,87 @@ footer {
     position: fixed;
     bottom: 30px;
     right: 30px;
-    background-color: var(--red);
+    background-color: var(--primary-color);
     color: #fff;
     padding: 15px;
     border-radius: 50%;
-    font-size: 18px;
+    font-size: 20px;
     display: none;
     cursor: pointer;
     z-index: 1000;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, transform 0.3s;
 }
 
 .back-to-top:hover {
-    background-color: var(--green);
+    background-color: var(--secondary-color);
+    transform: scale(1.2);
 }
 
 /* Адаптивность */
 
-@media (max-width: 992px) {
-    .team-member, .video-item {
-        flex: 1 1 calc(50% - 40px);
+@media (max-width: 1200px) {
+    .team-member {
+        flex: 1 1 calc(33.333% - 60px);
     }
 
-    .news-item {
-        flex: 1 1 100%;
+    .video-item {
+        flex: 1 1 calc(33.333% - 60px);
     }
 }
 
-@media (max-width: 600px) {
-    nav ul {
-        flex-direction: column;
+@media (max-width: 992px) {
+    .team-member, .video-item {
+        flex: 1 1 calc(50% - 60px);
     }
+}
 
-    nav a {
-        text-align: center;
-    }
-
+@media (max-width: 768px) {
     .team-member, .video-item {
         flex: 1 1 100%;
     }
+
+    .hero h1 {
+        font-size: 36px;
+    }
+
+    .hero p {
+        font-size: 20px;
+    }
+
+    .section h2 {
+        font-size: 28px;
+    }
+}
+
+/* Дополнительные стили */
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--text-color);
+    margin-top: 0;
+}
+
+p {
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+    font-weight: 700;
 }
